@@ -8,6 +8,7 @@ const source = new AudioSource(clip)
 
 //   socket = new WebSocket('wss://144-126-202-32.nip.io/broadcast/')
 // "ethereum://0xf87e31492faf9a91b02ee0deaad50d51d56d5d4d/25180895152149446296289720949950847647707"
+// https://www.youtube.com/watch?v=RN7mbUBzUJw
 
 const pic1 = new Entity()
 const shapeComponent = new NFTShape(
