@@ -1,6 +1,8 @@
 {
   "display": {
-    "title": "interactive-text",
+    "title": "**GIVEAWAY** - Keep Network!",
+	"description": "You won't believe the prize",
+	"navmapThumbnail": "keeplogo.png",
     "favicon": "favicon_asset"
   },
   "contact": {
@@ -31,7 +33,9 @@
   "requiredPermissions": [
     "ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE"
   ],
-  "main": "bin/game.js",
+  
+
+"main": "bin/game.js",
   "tags": [],
   "spawnPoints": [
     {
