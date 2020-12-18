@@ -1,0 +1,52 @@
+{
+  "display": {
+    "title": "interactive-text",
+    "favicon": "favicon_asset"
+  },
+  "contact": {
+    "name": "author-name",
+    "email": ""
+  },
+  "owner": "",
+  "scene": {
+    "parcels": [
+	"-136,-25","-137,-25","-138,-25","-139,-25","-140,-25","-141,-25",
+	"-136,-24","-137,-24","-138,-24","-139,-24","-140,-24","-141,-24",
+	"-136,-23","-137,-23","-138,-23","-139,-23","-140,-23","-141,-23",
+	"-136,-22","-137,-22","-138,-22","-139,-22","-140,-22","-141,-22",
+	"-136,-21","-137,-21","-138,-21","-139,-21","-140,-21","-141,-21"
+    ],
+    "base": "-141,-25"
+  },
+  "communications": {
+    "type": "webrtc",
+    "signalling": "https://signalling-01.decentraland.org"
+  },
+  "policy": {
+    "contentRating": "E",
+    "fly": true,
+    "voiceEnabled": true,
+    "blacklist": []
+  },
+  "requiredPermissions": [
+    "ALLOW_TO_MOVE_PLAYER_INSIDE_SCENE"
+  ],
+  "main": "bin/game.js",
+  "tags": [],
+  "spawnPoints": [
+    {
+      "name": "spawn1",
+      "default": true,
+      "position": {
+        "x": 40,
+        "y": 1,
+        "z": 40
+      },
+      "cameraTarget": {
+        "x": 8,
+        "y": 1,
+        "z": 8
+      }
+    }
+  ]
+}
