@@ -177,9 +177,22 @@ engine.addEntity(avocado1)
 avocado1.addComponent(new GLTFShape("models/scene.glb"))
 avocado1.addComponent(new Transform({ position: new Vector3(0, 0, -1) }));
 
-
+const stairz = new Entity()
+engine.addEntity(stairz)
+stairz.addComponent(new GLTFShape("models/stairz.glb"))
+stairz.addComponent(new Transform({ position: new Vector3(0, 0, -1) }));
+stairz.addComponent(
+  new OnPointerDown(
+    (_e) => {
+      RestrictedActions.movePlayerTo({ x: 5, y: 44, z: 44 }, { x: 5, y: 44, z: 44 })
+    },
+    { hoverText: "Go upstairs!",
+    distance: 50,  }
+  )
+)
 
 const upstairs = new Entity()
+
 engine.addEntity(upstairs)
 upstairs.addComponent(new GLTFShape("models/upstairs.glb"))
 upstairs.addComponent(new Transform({ position: new Vector3(68, 0, 49) }));
