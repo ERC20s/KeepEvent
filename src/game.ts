@@ -3,9 +3,8 @@ import { movePlayerTo } from '@decentraland/RestrictedActions'
 import { GuestBook } from './guestbook'
 
 
-const clip = new AudioClip("sounds/dnb2.mp3")
+const clip = new AudioClip("sounds/DB.mp3")
 const source = new AudioSource(clip)
-source.playing = true;
 
 //   socket = new WebSocket('wss://144-126-202-32.nip.io/broadcast/')
 // "ethereum://0xf87e31492faf9a91b02ee0deaad50d51d56d5d4d/25180895152149446296289720949950847647707"
@@ -188,6 +187,20 @@ upstairs.addComponent(
       RestrictedActions.movePlayerTo({ x: 5, y: 44, z: 44 }, { x: 5, y: 44, z: 44 })
     },
     { hoverText: "Go upstairs!",
+    distance: 50,  }
+  )
+)
+
+const moon = new Entity()
+engine.addEntity(moon)
+moon.addComponent(new GLTFShape("models/moon.gltf"))
+moon.addComponent(new Transform({ position: new Vector3(55, 44, 75) }));
+moon.addComponent(
+  new OnPointerDown(
+    (_e) => {
+      RestrictedActions.movePlayerTo({ x: 42, y: 511, z: 44 }, { x: 44, y: 44, z: 44 })
+    },
+    { hoverText: "To the moon!",
     distance: 50,  }
   )
 )
