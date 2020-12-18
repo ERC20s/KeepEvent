@@ -3,8 +3,9 @@ import { movePlayerTo } from '@decentraland/RestrictedActions'
 import { GuestBook } from './guestbook'
 
 
-const clip = new AudioClip("sounds/DB.mp3")
+const clip = new AudioClip("sounds/dnb2.mp3")
 const source = new AudioSource(clip)
+source.playing = true;
 
 //   socket = new WebSocket('wss://144-126-202-32.nip.io/broadcast/')
 // "ethereum://0xf87e31492faf9a91b02ee0deaad50d51d56d5d4d/25180895152149446296289720949950847647707"
