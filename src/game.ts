@@ -179,12 +179,12 @@ avocado1.addComponent(new Transform({ position: new Vector3(0, 0, -1) }));
 
 const stairz = new Entity()
 engine.addEntity(stairz)
-stairz.addComponent(new GLTFShape("models/stairz.glb"))
+stairz.addComponent(new GLTFShape("models/stairz.gltf"))
 stairz.addComponent(new Transform({ position: new Vector3(0, 0, -1) }));
 stairz.addComponent(
   new OnPointerDown(
     (_e) => {
-      RestrictedActions.movePlayerTo({ x: 5, y: 44, z: 44 }, { x: 5, y: 44, z: 44 })
+      RestrictedActions.movePlayerTo({ x: 40, y: 65, z: 28 }, { x: 40, y: 65, z: 28 })
     },
     { hoverText: "Go upstairs!",
     distance: 50,  }
