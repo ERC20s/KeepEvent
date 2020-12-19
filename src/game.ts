@@ -83,19 +83,16 @@ NextButton1.onClick = new OnClick(() => {
 
 NextButton2.onClick = new OnClick(() => {
   sname.value = clip.url
-  source.playing = true
   source2.playing = false
-
   NextButton2.visible = false
-  NextButton1.visible = true
+  NextButton3.visible = true
 })
 
 NextButton3.onClick = new OnClick(() => {
-  sname.value = clip2.url
-  source3.playing = true
-  source2.playing = false
-  NextButton2.visible = true
-  NextButton1.visible = false
+  sname.value = clip3.url
+  source.playing = true
+  NextButton3.visible = false
+  NextButton1.visible = true
 })
 //   socket = new WebSocket('wss://144-126-202-32.nip.io/broadcast/')
 // "ethereum://0xf87e31492faf9a91b02ee0deaad50d51d56d5d4d/25180895152149446296289720949950847647707"
