@@ -6,7 +6,7 @@ import { GuestBook } from './guestbook'
 const imageTexture = new Texture('images/UI_Guestbook.png')
 const canvas = new UICanvas()
 
-const clip = new AudioClip("DnB.mp3")
+const clip = new AudioClip("dnb.mp3")
 const source = new AudioSource(clip)
 source.playing = true;
 
@@ -60,15 +60,16 @@ NextButton1.sourceHeight = 75
 
 NextButton2.onClick = new OnClick(() => {
   sname.value = clip.url
-  source.playing = false
-  source2.playing = true
+  source.playing = true
+  source2.playing = false
+
   NextButton2.visible = false
   NextButton1.visible = true
 })
 NextButton1.onClick = new OnClick(() => {
   sname.value = clip2.url
-  source.playing = true
-  source2.playing = false
+  source.playing = false
+  source2.playing = true
   NextButton2.visible = true
   NextButton1.visible = false
 })
