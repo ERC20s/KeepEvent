@@ -14,10 +14,6 @@ const clip2 = new AudioClip("techno.mp3")
 const source2 = new AudioSource(clip2)
 source2.playing = false;
 
-const clip3 = new AudioClip("Music off")
-const source3 = new AudioSource(clip3)
-
-
 const inventoryContainer = new UIContainerStack(canvas)
 inventoryContainer.adaptWidth = true
 inventoryContainer.width = 200
@@ -41,7 +37,7 @@ sname.fontSize = 25
 sname.color = Color4.Black()
 
 const NextButton1 = new UIImage(canvas, imageTexture)
-NextButton1.name = 'LastButton'
+NextButton1.name = '1Button'
 NextButton1.width = 76
 NextButton1.height = 76
 NextButton1.hAlign = "right"
@@ -50,9 +46,10 @@ NextButton1.positionY = 100
 NextButton1.positionX = 10
 NextButton1.sourceWidth = 75
 NextButton1.sourceHeight = 75
+NextButton1.visible = true
 
 const NextButton2 = new UIImage(canvas, imageTexture)
-NextButton2.name = 'LastButton'
+NextButton2.name = '2Button'
 NextButton2.width = 76
 NextButton2.height = 76
 NextButton2.hAlign = "right"
@@ -61,9 +58,10 @@ NextButton2.positionY = 100
 NextButton2.positionX = 10
 NextButton2.sourceWidth = 75
 NextButton2.sourceHeight = 75
+NextButton2.visible = false
 
 const NextButton3 = new UIImage(canvas, imageTexture)
-NextButton3.name = 'LastButton'
+NextButton3.name = '3Button'
 NextButton3.width = 76
 NextButton3.height = 76
 NextButton3.hAlign = "right"
@@ -72,9 +70,10 @@ NextButton3.positionY = 100
 NextButton3.positionX = 10
 NextButton3.sourceWidth = 75
 NextButton3.sourceHeight = 75
+NextButton3.visible = false
 
 NextButton1.onClick = new OnClick(() => {
-  sname.value = clip2.url
+  sname.value = "Techno.mp3"
   source.playing = false
   source2.playing = true
   NextButton2.visible = true
@@ -82,14 +81,14 @@ NextButton1.onClick = new OnClick(() => {
 })
 
 NextButton2.onClick = new OnClick(() => {
-  sname.value = clip3.url
+  sname.value = "DnB.mp3"
   source2.playing = false
   NextButton2.visible = false
   NextButton3.visible = true
 })
 
 NextButton3.onClick = new OnClick(() => {
-  sname.value = clip.url
+  sname.value = "No music"
   source.playing = true
   NextButton3.visible = false
   NextButton1.visible = true
