@@ -82,14 +82,14 @@ NextButton1.onClick = new OnClick(() => {
 })
 
 NextButton2.onClick = new OnClick(() => {
-  sname.value = clip.url
+  sname.value = clip3.url
   source2.playing = false
   NextButton2.visible = false
   NextButton3.visible = true
 })
 
 NextButton3.onClick = new OnClick(() => {
-  sname.value = clip3.url
+  sname.value = clip.url
   source.playing = true
   NextButton3.visible = false
   NextButton1.visible = true
