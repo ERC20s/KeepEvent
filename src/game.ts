@@ -3,9 +3,75 @@ import { movePlayerTo } from '@decentraland/RestrictedActions'
 import { GuestBook } from './guestbook'
 
 
-const clip = new AudioClip("sounds/dnb2.mp3")
+const imageTexture = new Texture('images/UI_Guestbook.png')
+const canvas = new UICanvas()
+
+const clip = new AudioClip("DnB.mp3")
 const source = new AudioSource(clip)
 source.playing = true;
+
+const clip2 = new AudioClip("techno.mp3")
+const source2 = new AudioSource(clip2)
+
+const inventoryContainer = new UIContainerStack(canvas)
+inventoryContainer.adaptWidth = true
+inventoryContainer.width = 200
+inventoryContainer.height = 75
+inventoryContainer.positionY = 100
+inventoryContainer.positionX = 0
+inventoryContainer.color = Color4.White()
+inventoryContainer.hAlign = "right"
+inventoryContainer.vAlign = "bottom"
+inventoryContainer.stackOrientation = UIStackOrientation.VERTICAL
+
+const sname = new UIText(canvas)
+sname.value = clip.url
+sname.width = 76
+sname.height = 76
+sname.hAlign = "right"
+sname.vAlign = "bottom"
+sname.positionY = 100
+sname.positionX = -120
+sname.fontSize = 25
+sname.color = Color4.Black()
+
+
+const NextButton2 = new UIImage(canvas, imageTexture)
+NextButton2.name = 'LastButton'
+NextButton2.width = 76
+NextButton2.height = 76
+NextButton2.hAlign = "right"
+NextButton2.vAlign = "bottom"
+NextButton2.positionY = 100
+NextButton2.positionX = 10
+NextButton2.sourceWidth = 75
+NextButton2.sourceHeight = 75
+
+const NextButton1 = new UIImage(canvas, imageTexture)
+NextButton1.name = 'LastButton'
+NextButton1.width = 76
+NextButton1.height = 76
+NextButton1.hAlign = "right"
+NextButton1.vAlign = "bottom"
+NextButton1.positionY = 100
+NextButton1.positionX = 10
+NextButton1.sourceWidth = 75
+NextButton1.sourceHeight = 75
+
+NextButton2.onClick = new OnClick(() => {
+  sname.value = clip.url
+  source.playing = false
+  source2.playing = true
+  NextButton2.visible = false
+  NextButton1.visible = true
+})
+NextButton1.onClick = new OnClick(() => {
+  sname.value = clip2.url
+  source.playing = true
+  source2.playing = false
+  NextButton2.visible = true
+  NextButton1.visible = false
+})
 
 //   socket = new WebSocket('wss://144-126-202-32.nip.io/broadcast/')
 // "ethereum://0xf87e31492faf9a91b02ee0deaad50d51d56d5d4d/25180895152149446296289720949950847647707"
