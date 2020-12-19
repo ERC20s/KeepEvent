@@ -12,6 +12,11 @@ source.playing = true;
 
 const clip2 = new AudioClip("techno.mp3")
 const source2 = new AudioSource(clip2)
+source2.playing = false;
+
+const clip3 = new AudioClip("Music off")
+const source3 = new AudioSource(clip3)
+
 
 const inventoryContainer = new UIContainerStack(canvas)
 inventoryContainer.adaptWidth = true
@@ -35,6 +40,16 @@ sname.positionX = -120
 sname.fontSize = 25
 sname.color = Color4.Black()
 
+const NextButton1 = new UIImage(canvas, imageTexture)
+NextButton1.name = 'LastButton'
+NextButton1.width = 76
+NextButton1.height = 76
+NextButton1.hAlign = "right"
+NextButton1.vAlign = "bottom"
+NextButton1.positionY = 100
+NextButton1.positionX = 10
+NextButton1.sourceWidth = 75
+NextButton1.sourceHeight = 75
 
 const NextButton2 = new UIImage(canvas, imageTexture)
 NextButton2.name = 'LastButton'
@@ -47,16 +62,24 @@ NextButton2.positionX = 10
 NextButton2.sourceWidth = 75
 NextButton2.sourceHeight = 75
 
-const NextButton1 = new UIImage(canvas, imageTexture)
-NextButton1.name = 'LastButton'
-NextButton1.width = 76
-NextButton1.height = 76
-NextButton1.hAlign = "right"
-NextButton1.vAlign = "bottom"
-NextButton1.positionY = 100
-NextButton1.positionX = 10
-NextButton1.sourceWidth = 75
-NextButton1.sourceHeight = 75
+const NextButton3 = new UIImage(canvas, imageTexture)
+NextButton3.name = 'LastButton'
+NextButton3.width = 76
+NextButton3.height = 76
+NextButton3.hAlign = "right"
+NextButton3.vAlign = "bottom"
+NextButton3.positionY = 100
+NextButton3.positionX = 10
+NextButton3.sourceWidth = 75
+NextButton3.sourceHeight = 75
+
+NextButton1.onClick = new OnClick(() => {
+  sname.value = clip2.url
+  source.playing = false
+  source2.playing = true
+  NextButton2.visible = true
+  NextButton1.visible = false
+})
 
 NextButton2.onClick = new OnClick(() => {
   sname.value = clip.url
@@ -66,14 +89,14 @@ NextButton2.onClick = new OnClick(() => {
   NextButton2.visible = false
   NextButton1.visible = true
 })
-NextButton1.onClick = new OnClick(() => {
+
+NextButton3.onClick = new OnClick(() => {
   sname.value = clip2.url
-  source.playing = false
-  source2.playing = true
+  source3.playing = true
+  source2.playing = false
   NextButton2.visible = true
   NextButton1.visible = false
 })
-
 //   socket = new WebSocket('wss://144-126-202-32.nip.io/broadcast/')
 // "ethereum://0xf87e31492faf9a91b02ee0deaad50d51d56d5d4d/25180895152149446296289720949950847647707"
 // https://www.youtube.com/watch?v=RN7mbUBzUJw
