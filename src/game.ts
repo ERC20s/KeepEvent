@@ -6,13 +6,13 @@ import { GuestBook } from './guestbook'
 const imageTexture = new Texture('images/UI_Guestbook.png')
 const canvas = new UICanvas()
 
-const clip = new AudioClip("dnb.mp3")
-const source = new AudioSource(clip)
-source.playing = true;
+let clip = new AudioClip("dnb.mp3")
+let source = new AudioSource(clip)
+source.loop = true;
 
-const clip2 = new AudioClip("techno.mp3")
-const source2 = new AudioSource(clip2)
-source2.playing = false;
+let clip2 = new AudioClip("techno.mp3")
+let source2 = new AudioSource(clip2)
+source2.loop = false;
 
 const inventoryContainer = new UIContainerStack(canvas)
 inventoryContainer.adaptWidth = true
@@ -74,22 +74,22 @@ NextButton3.visible = false
 
 NextButton1.onClick = new OnClick(() => {
   sname.value = "Techno.mp3"
-  source.playing = false
-  source2.playing = true
+  source.loop = false
+  source2.loop = true
   NextButton2.visible = true
   NextButton1.visible = false
 })
 
 NextButton2.onClick = new OnClick(() => {
   sname.value = "DnB.mp3"
-  source2.playing = false
+  source2.loop = false
   NextButton2.visible = false
   NextButton3.visible = true
 })
 
 NextButton3.onClick = new OnClick(() => {
   sname.value = "No music"
-  source.playing = true
+  source.loop = true
   NextButton3.visible = false
   NextButton1.visible = true
 })
