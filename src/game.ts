@@ -6,7 +6,7 @@ import { GuestBook } from './guestbook'
 const imageTexture = new Texture('images/UI_Guestbook.png')
 const canvas = new UICanvas()
 
-let clip = new AudioClip("dnb.mp3")
+let clip = new AudioClip("sounds/dnb.mp3")
 let source = new AudioSource(clip)
 source.loop = true;
 
@@ -110,10 +110,6 @@ win.addComponent(
 )
 )
 
-let clip2 = new AudioClip("techno.mp3")
-let source2 = new AudioSource(clip2)
-source2.loop = false;
-
 const de1 = new Entity()
 engine.addEntity(de1)
 de1.addComponent(new GLTFShape("models/de1.glb"))
@@ -130,23 +126,16 @@ de1.addComponent(
 )
 
 NextButton1.onClick = new OnClick(() => {
-  sname.value = "Techno.mp3"
-  source.loop = false
-  source2.loop = true
   NextButton2.visible = true
   NextButton1.visible = false
 })
 
 NextButton2.onClick = new OnClick(() => {
-  sname.value = "No music"
-  source2.loop = false
   NextButton2.visible = false
   NextButton3.visible = true
 })
 
 NextButton3.onClick = new OnClick(() => {
-  sname.value = "DnB.mp3"
-  source.loop = true
   NextButton3.visible = false
   NextButton1.visible = true
 })
