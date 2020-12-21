@@ -10,10 +10,6 @@ let clip = new AudioClip("dnb.mp3")
 let source = new AudioSource(clip)
 source.loop = true;
 
-let clip2 = new AudioClip("techno.mp3")
-let source2 = new AudioSource(clip2)
-source2.loop = false;
-
 const inventoryContainer = new UIContainerStack(canvas)
 inventoryContainer.adaptWidth = true
 inventoryContainer.width = 200
@@ -26,7 +22,7 @@ inventoryContainer.vAlign = "bottom"
 inventoryContainer.stackOrientation = UIStackOrientation.VERTICAL
 
 const sname = new UIText(canvas)
-sname.value = clip.url
+sname.value = "DnB.mp3"
 sname.width = 76
 sname.height = 76
 sname.hAlign = "right"
@@ -72,27 +68,7 @@ NextButton3.sourceWidth = 75
 NextButton3.sourceHeight = 75
 NextButton3.visible = false
 
-NextButton1.onClick = new OnClick(() => {
-  sname.value = "Techno.mp3"
-  source.loop = false
-  source2.loop = true
-  NextButton2.visible = true
-  NextButton1.visible = false
-})
 
-NextButton2.onClick = new OnClick(() => {
-  sname.value = "DnB.mp3"
-  source2.loop = false
-  NextButton2.visible = false
-  NextButton3.visible = true
-})
-
-NextButton3.onClick = new OnClick(() => {
-  sname.value = "No music"
-  source.loop = true
-  NextButton3.visible = false
-  NextButton1.visible = true
-})
 //   socket = new WebSocket('wss://144-126-202-32.nip.io/broadcast/')
 // "ethereum://0xf87e31492faf9a91b02ee0deaad50d51d56d5d4d/25180895152149446296289720949950847647707"
 // https://www.youtube.com/watch?v=RN7mbUBzUJw
@@ -119,6 +95,7 @@ pic1.addComponent(
 
 engine.addEntity(pic1)
 
+
 const win = new Entity()
 engine.addEntity(win)
 win.addComponent(new GLTFShape("models/de4.glb"))
@@ -132,6 +109,10 @@ win.addComponent(
     { hoverText: "Watch the artist draw!" }
 )
 )
+
+let clip2 = new AudioClip("techno.mp3")
+let source2 = new AudioSource(clip2)
+source2.loop = false;
 
 const de1 = new Entity()
 engine.addEntity(de1)
@@ -147,6 +128,28 @@ de1.addComponent(
       distance: 33,}
 )
 )
+
+NextButton1.onClick = new OnClick(() => {
+  sname.value = "Techno.mp3"
+  source.loop = false
+  source2.loop = true
+  NextButton2.visible = true
+  NextButton1.visible = false
+})
+
+NextButton2.onClick = new OnClick(() => {
+  sname.value = "No music"
+  source2.loop = false
+  NextButton2.visible = false
+  NextButton3.visible = true
+})
+
+NextButton3.onClick = new OnClick(() => {
+  sname.value = "DnB.mp3"
+  source.loop = true
+  NextButton3.visible = false
+  NextButton1.visible = true
+})
 
 const de2 = new Entity()
 engine.addEntity(de2)
