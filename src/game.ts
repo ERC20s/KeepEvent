@@ -8,7 +8,7 @@ const canvas = new UICanvas()
 
 let clip = new AudioClip("sounds/dnb.mp3")
 let source = new AudioSource(clip)
-source.loop = true;
+source.playing = true;
 
 const inventoryContainer = new UIContainerStack(canvas)
 inventoryContainer.adaptWidth = true
@@ -110,6 +110,10 @@ win.addComponent(
 )
 )
 
+let clip2 = new AudioClip("sounds/techno.mp3")
+let source2 = new AudioSource(clip2)
+source2.playing = false;
+
 const de1 = new Entity()
 engine.addEntity(de1)
 de1.addComponent(new GLTFShape("models/de1.glb"))
@@ -126,16 +130,23 @@ de1.addComponent(
 )
 
 NextButton1.onClick = new OnClick(() => {
+  sname.value = "Techno.mp3"
+  source.playing = false
+  source2.playing = true
   NextButton2.visible = true
   NextButton1.visible = false
 })
 
 NextButton2.onClick = new OnClick(() => {
+  sname.value = "No music"
+  source2.playing = false
   NextButton2.visible = false
   NextButton3.visible = true
 })
 
 NextButton3.onClick = new OnClick(() => {
+  sname.value = "DnB.mp3"
+  source.playing = true
   NextButton3.visible = false
   NextButton1.visible = true
 })
