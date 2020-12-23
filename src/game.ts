@@ -6,28 +6,18 @@ import utils from '../node_modules/decentraland-ecs-utils/index'
 const imageTexture = new Texture('images/UI_Guestbook.png')
 const canvas = new UICanvas()
 
-const jukebox = new Entity()
-jukebox.addComponent(new GLTFShape('models/Jukebox.gltf'))
-jukebox.addComponent(
-  new Transform({
-    position: new Vector3(15,38,12),
-    scale: new Vector3(0.6, 0.6, 0.6)
-  })
-)
-engine.addEntity(jukebox)
-
-
-
 const songs: { src: string; name: string }[] = [
-  { src: 'sounds/dnb.mp3', name: 'dnb' },
-  { src: 'sounds/dnb2.mp3', name: 'dnb2' },
-  { src: 'sounds/hiphop.mp3', name: 'hiphop' },
-  { src: 'sounds/techno.mp3', name: 'techno' }
+  { src: 'sounds/Telemann.mp3', name: 'sssss' },
+  { src: 'sounds/Bach.mp3', name: 'Bach' },
+  { src: 'sounds/test.mp3', name: 'Test' },
+  { src: 'sounds/Brahms.mp3', name: 'Brahms' },
+  { src: 'sounds/Chopin.mp3', name: 'Chopin' }
 ]
-
+// https://www.youtube.com/watch?v=0HrHuLa7y1E&t
 
 const inventoryContainer = new UIContainerStack(canvas)
 inventoryContainer.adaptWidth = true
+inventoryContainer.adaptHeight = true
 inventoryContainer.width = 200
 inventoryContainer.height = 75
 inventoryContainer.positionY = 100
@@ -37,10 +27,18 @@ inventoryContainer.hAlign = "right"
 inventoryContainer.vAlign = "bottom"
 inventoryContainer.stackOrientation = UIStackOrientation.VERTICAL
 
-
+const NextButton0 = new UIImage(canvas, imageTexture)
+NextButton0.width = 76
+NextButton0.height = 76
+NextButton0.hAlign = "right"
+NextButton0.vAlign = "bottom"
+NextButton0.positionY = 100
+NextButton0.positionX = 10
+NextButton0.sourceWidth = 75
+NextButton0.sourceHeight = 75
+NextButton0.visible = false
 
 const NextButton1 = new UIImage(canvas, imageTexture)
-NextButton1.name = '1Button'
 NextButton1.width = 76
 NextButton1.height = 76
 NextButton1.hAlign = "right"
@@ -51,111 +49,312 @@ NextButton1.sourceWidth = 75
 NextButton1.sourceHeight = 75
 NextButton1.visible = true
 
+const NextButton2 = new UIImage(canvas, imageTexture)
+NextButton2.width = 76
+NextButton2.height = 76
+NextButton2.hAlign = "right"
+NextButton2.vAlign = "bottom"
+NextButton2.positionY = 176
+NextButton2.positionX = 10
+NextButton2.sourceWidth = 75
+NextButton2.sourceHeight = 75
+NextButton2.visible = false
+
+const NextButton3 = new UIImage(canvas, imageTexture)
+NextButton3.width = 76
+NextButton3.height = 76
+NextButton3.hAlign = "right"
+NextButton3.vAlign = "bottom"
+NextButton3.positionY = 252
+NextButton3.positionX = 10
+NextButton3.sourceWidth = 75
+NextButton3.sourceHeight = 75
+NextButton3.visible = false
+
+const NextButton4 = new UIImage(canvas, imageTexture)
+NextButton4.width = 76
+NextButton4.height = 76
+NextButton4.hAlign = "right"
+NextButton4.vAlign = "bottom"
+NextButton4.positionY = 328
+NextButton4.positionX = 10
+NextButton4.sourceWidth = 75
+NextButton4.sourceHeight = 75
+NextButton4.visible = false
+
+const NextButton5 = new UIImage(canvas, imageTexture)
+NextButton5.width = 76
+NextButton5.height = 76
+NextButton5.hAlign = "right"
+NextButton5.vAlign = "bottom"
+NextButton5.positionY = 404
+NextButton5.positionX = 10
+NextButton5.sourceWidth = 75
+NextButton5.sourceHeight = 75
+NextButton5.visible = false
+
+const NextButton6 = new UIImage(canvas, imageTexture)
+NextButton6.width = 76
+NextButton6.height = 76
+NextButton6.hAlign = "right"
+NextButton6.vAlign = "bottom"
+NextButton6.positionY = 480
+NextButton6.positionX = 10
+NextButton6.sourceWidth = 75
+NextButton6.sourceHeight = 75
+NextButton6.visible = false
+
 const sname = new UIText(canvas)
-sname.value = ""
+sname.value = "MusicBox"
 sname.width = 76
 sname.height = 76
 sname.hAlign = "right"
 sname.vAlign = "bottom"
-sname.positionY = 100
+sname.positionY = 110
 sname.positionX = -120
 sname.fontSize = 25
 sname.color = Color4.Black()
 
-// Buttons
+const sname2 = new UIText(canvas)
+sname2.value = "Reggae"
+sname2.width = 76
+sname2.height = 76
+sname2.hAlign = "right"
+sname2.vAlign = "bottom"
+sname2.positionY = 186
+sname2.positionX = -120
+sname2.fontSize = 25
+sname2.color = Color4.Black()
+sname2.visible = false
+
+const sname3 = new UIText(canvas)
+sname3.value = "House"
+sname3.width = 76
+sname3.height = 76
+sname3.hAlign = "right"
+sname3.vAlign = "bottom"
+sname3.positionY = 262
+sname3.positionX = -120
+sname3.fontSize = 25
+sname3.color = Color4.Black()
+sname3.visible = false
+
+const sname4 = new UIText(canvas)
+sname4.value = "HipHop"
+sname4.width = 76
+sname4.height = 76
+sname4.hAlign = "right"
+sname4.vAlign = "bottom"
+sname4.positionY = 338
+sname4.positionX = -120
+sname4.fontSize = 25
+sname4.color = Color4.Black()
+sname4.visible = false
+
+const sname5 = new UIText(canvas)
+sname5.value = "DnB"
+sname5.width = 76
+sname5.height = 76
+sname5.hAlign = "right"
+sname5.vAlign = "bottom"
+sname5.positionY = 414
+sname5.positionX = -120
+sname5.fontSize = 25
+sname5.color = Color4.Black()
+sname5.visible = false
+
+const sname6 = new UIText(canvas)
+sname6.value = "Chill"
+sname6.width = 76
+sname6.height = 76
+sname6.hAlign = "right"
+sname6.vAlign = "bottom"
+sname6.positionY = 490
+sname6.positionX = -120
+sname6.fontSize = 25
+sname6.color = Color4.Black()
+sname6.visible = false
+
+NextButton0.onClick = new OnClick(() => {
+  sname.value = "MusicBox"
+  inventoryContainer.height = 75
+  NextButton0.visible = false
+  NextButton1.visible = true
+  NextButton2.visible = false
+  NextButton3.visible = false
+  NextButton4.visible = false
+  NextButton5.visible = false
+  NextButton6.visible = false
+  sname2.visible = false
+  sname3.visible = false
+  sname4.visible = false
+  sname5.visible = false
+  sname6.visible = false
+  }
+)
+
 let buttonArray = []
 
-let clickOffset = new Vector3(0, 0, 0.02)
-let buttonPos = new Vector3(0, 0, -0.04)
+let clickOffset = new Vector3(0, 0.5, 0.02)
+let buttonPos = new Vector3(0, 0.5, -0.04)
 
 for (let i = 0; i < songs.length; i++) {
-  let posX = i % 2 == 0 ? -0.03 : 0.4
-  let posY = Math.floor(i / 2) == 0 ? 1.9 : 1.77
 
-  // groups the button itself and label
-  const buttonWrapper = new Entity()
-  buttonWrapper.addComponent(
-    new Transform({
-      position: new Vector3(posX, posY, 0.7),
-      rotation: Quaternion.Euler(0, 180, 0)
-    })
-  )
-  buttonWrapper.setParent(jukebox)
-  engine.addEntity(buttonWrapper)
+  let song = new AudioClip(songs[i].src)
+  let audioSource = new AudioSource(song)
+  audioSource.playing = false
 
-  const buttonLabel = new Entity()
-  buttonLabel.addComponent(
-    new Transform({
-      position: new Vector3(0.05, 0, -0.1)
-    })
-  )
-  const text = new TextShape(songs[i].name)
-  text.fontSize = 1
-  text.hTextAlign = 'left'
-  text.color = Color3.FromHexString('#800000')
-  buttonLabel.addComponent(text)
-  buttonLabel.setParent(buttonWrapper)
-  engine.addEntity(buttonLabel)
+NextButton1.onClick = new OnClick(() => {
+  sname.value = "close"
+  inventoryContainer.height = 480
+  NextButton0.visible = true
+  NextButton1.visible = false
+  NextButton2.visible = true
+  NextButton3.visible = true
+  NextButton4.visible = true
+  NextButton5.visible = true
+  NextButton6.visible = true
+  sname2.visible = true
+  sname3.visible = true
+  sname4.visible = true
+  sname5.visible = true
+  sname6.visible = true
+  }
+)
+
+NextButton2.onClick = new OnClick(() => {
+  sname2.value = "Playing.."
+  sname4.value = songs[i-1].name
+  sname4.value = songs[i-2].name
+  sname5.value = songs[i-3].name
+  sname6.value = songs[i-4].name
+  pressButton(i)
+  }
+)
+
+NextButton3.onClick = new OnClick(() => {
+  sname2.value = songs[i].name
+  sname3.value = "Playing.."
+  sname4.value = songs[i-2].name
+  sname5.value = songs[i-3].name
+  sname6.value = songs[i-4].name
+  pressButton(i-1)
+  }
+)
+
+NextButton4.onClick = new OnClick(() => {
+  sname2.value = songs[i].name
+  sname3.value = songs[i-1].name
+  sname4.value = "Playing.."
+  sname5.value = songs[i-3].name
+  sname6.value = songs[i-4].name
+  pressButton(i-2)
+  }
+)
+
+NextButton5.onClick = new OnClick(() => {
+  sname2.value = songs[i].name
+  sname3.value = songs[i-1].name
+  sname4.value = songs[i-2].name
+  sname5.value = "Playing.."
+  sname6.value = songs[i-4].name
+  pressButton(i-3)
+  }
+)
+
+NextButton6.onClick = new OnClick(() => {
+  sname2.value = songs[i].name
+  sname3.value = songs[i-1].name
+  sname4.value = songs[i-2].name
+  sname5.value = songs[i-3].name
+  sname6.value = 'Playing..'
+  pressButton(i-4)
+  }
+)
+
+const camera = Camera.instance
+
+class SomeSystem implements ISystem {
+  entity: Entity
+  constructor(entity: Entity) {
+    this.entity = entity
+  }
+
+  update() {
+    const transform = this.entity.getComponent(Transform)
+    transform.rotation = camera.rotation
+  }
+}
+
+const spin = new Entity();
+engine.addEntity(spin);
+spin.addComponent(audioSource)
+spin.addComponent(new GLTFShape("models/spink.glb"));
+spin.addComponent(new Transform({ position: new Vector3(41, 1.5, 42.25) }));
+
+spin.addComponent(
+  new OnPointerDown(() => {
+    openExternalURL("https://keep.network")
+  },
+    { hoverText: "Visit Keep.Network" }
+)
+)
+
+const idoor = new Entity()
+engine.addEntity(idoor)
+idoor.addComponent(audioSource)
+idoor.addComponent(new GLTFShape("models/lama.gltf"))
+idoor.addComponent(new Transform({ position: new Vector3(12,39,29), rotation: Quaternion.Euler(0, 180, 0), }));
+idoor.addComponent(
+  new OnPointerDown(() => {
+    openExternalURL("https://twitter.com/austingriffith/status/1302369046176739328")
+  },
+    { hoverText: "Like a llama!",
+      distance: 33, }
+)
+)
+
+
 
   buttonArray[i] = new Entity()
-  buttonArray[i].addComponent(
-    new Transform({
-      position: new Vector3(0, 0, -0.04),
-      rotation: Quaternion.Euler(270, 0, 0),
-      scale: new Vector3(0.3, 0.3, 0.3)
-    })
-  )
-  buttonArray[i].setParent(buttonWrapper)
-  buttonArray[i].addComponent(new GLTFShape('models/Button.glb'))
 
+  buttonArray[i].setParent(idoor)
   buttonArray[i].addComponent(
     new utils.ToggleComponent(utils.ToggleState.Off, value => {
       if (value == utils.ToggleState.On) {
-        buttonArray[i].addComponentOrReplace(
-          new utils.MoveTransformComponent(buttonPos, clickOffset, 0.5)
-        )
         buttonArray[i].getComponent(AudioSource).playing = true
       } else {
         if (buttonArray[i].getComponent(AudioSource).playing) {
           buttonArray[i].getComponent(AudioSource).playing = false
-          buttonArray[i].addComponentOrReplace(
-            new utils.MoveTransformComponent(clickOffset, buttonPos, 0.5)
-          )
         }
       }
     })
   )
 
-  buttonArray[i].addComponent(
-    new OnPointerDown(
-      e => {
-        pressButton(i)
-        sname.value = songs[i].name
-      },
-      { button: ActionButton.POINTER, hoverText: songs[i].name }
-    )
-  )
-
-  // generate audio components
-  let song = new AudioClip(songs[i].src)
-  let audioSource = new AudioSource(song)
-  audioSource.playing = false
   buttonArray[i].addComponent(audioSource)
 
   engine.addEntity(buttonArray[i])
 
+const idoor2 = new Entity()
+engine.addEntity(idoor2)
+idoor2.addComponent(audioSource)
+idoor2.addComponent(new GLTFShape("models/lama.gltf"))
+idoor2.addComponent(new Transform({ position: new Vector3(68,39,20), rotation: Quaternion.Euler(0, 180, 0), }));
+idoor2.addComponent(
+  new OnPointerDown(() => {
+    openExternalURL("https://discord.gg/vxTFBaAu8A")
+  },
+    { hoverText: "This months prize!",
+      distance: 33, }
+)
+)
+engine.addSystem(new SomeSystem(idoor2))
 
+engine.addSystem(new SomeSystem(idoor))
 
-  NextButton1.onClick = new OnClick(() => {
-
-    }
-  )
 
 }
-
-///////////////////////////////////////
-//HELPER FUNCTIONS
-
+//FINISH
 function pressButton(i: number) {
   buttonArray[i].getComponent(utils.ToggleComponent).toggle()
   for (let j = 0; j < songs.length; j++) {
@@ -166,6 +365,10 @@ function pressButton(i: number) {
     }
   }
 }
+
+
+
+
 
 const avocado3 = new Entity();
 engine.addEntity(avocado3);
@@ -240,6 +443,7 @@ de1.addComponent(
 )
 
 
+
 const de2 = new Entity()
 engine.addEntity(de2)
 de2.addComponent(new GLTFShape("models/de2.glb"))
@@ -275,55 +479,6 @@ engine.addEntity(avoc)
 avoc.addComponent(new GLTFShape("models/avoc.gltf"))
 avoc.addComponent(new Transform({ position: new Vector3(0, 0, -1) }));
 
-const camera = Camera.instance
-
-class SomeSystem implements ISystem {
-  entity: Entity
-  constructor(entity: Entity) {
-    this.entity = entity
-  }
-
-  update() {
-    const transform = this.entity.getComponent(Transform)
-    transform.rotation = camera.rotation
-  }
-}
-
-const transform = new Transform()
-transform.position.set(17,34,34)
-
-
-
-
-const idoor = new Entity()
-engine.addEntity(idoor)
-idoor.addComponent(new GLTFShape("models/lama.gltf"))
-idoor.addComponent(new Transform({ position: new Vector3(12,39,29), rotation: Quaternion.Euler(0, 180, 0), }));
-
-idoor.addComponent(
-  new OnPointerDown(() => {
-    openExternalURL("https://discord.gg/vxTFBaAu8A")
-  },
-    { hoverText: "The llama gets around!",
-      distance: 33, }
-)
-)
-engine.addSystem(new SomeSystem(idoor))
-
-const idoor2 = new Entity()
-engine.addEntity(idoor2)
-idoor2.addComponent(new GLTFShape("models/lama.gltf"))
-idoor2.addComponent(new Transform({ position: new Vector3(68,39,20), rotation: Quaternion.Euler(0, 180, 0), }));
-
-idoor2.addComponent(
-  new OnPointerDown(() => {
-    openExternalURL("https://discord.gg/vxTFBaAu8A")
-  },
-    { hoverText: "This months prize!",
-      distance: 33, }
-)
-)
-engine.addSystem(new SomeSystem(idoor2))
 
 const entity = new Entity('entity')
 engine.addEntity(entity)
@@ -381,7 +536,7 @@ moon.addComponent(new Transform({ position: new Vector3(55, 44, 75) }));
 moon.addComponent(
   new OnPointerDown(
     (_e) => {
-      RestrictedActions.movePlayerTo({ x: 42, y: 511, z: 44 }, { x: 44, y: 44, z: 44 })
+      RestrictedActions.movePlayerTo({ x: 42, y: 599, z: 44 }, { x: 1, y: 1, z: 1 })
     },
     { hoverText: "To the moon!",
     distance: 50,  }
@@ -545,19 +700,7 @@ button6.addComponent(
 )
 )
 
-const spin = new Entity();
-engine.addEntity(spin);
 
-spin.addComponent(new GLTFShape("models/spink.glb"));
-spin.addComponent(new Transform({ position: new Vector3(41, 1.5, 42.25) }));
-
-spin.addComponent(
-  new OnPointerDown(() => {
-    openExternalURL("https://keep.network")
-  },
-    { hoverText: "Visit Keep.Network" }
-)
-)
 
 const coins = new Entity();
 engine.addEntity(coins);
