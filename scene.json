@@ -2,7 +2,7 @@
   "display": {
     "title": "**GIVEAWAY** - Keep Network!",
 	"description": "You won't believe the prize",
-	"navmapThumbnail": "keeplogo.png",
+	"navmapThumbnail": "keep3.jpg",
     "favicon": "favicon_asset"
   },
   "contact": {
@@ -22,7 +22,7 @@
   },
   "communications": {
     "type": "webrtc",
-    "signalling": "https://signalling-01.decentraland.org"
+    "signalling": "https://signajpgling-01.decentraland.org"
   },
   "policy": {
     "contentRating": "E",
