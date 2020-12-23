@@ -7,13 +7,12 @@ const imageTexture = new Texture('images/UI_Guestbook.png')
 const canvas = new UICanvas()
 
 const songs: { src: string; name: string }[] = [
-  { src: 'sounds/Telemann.mp3', name: 'sssss' },
-  { src: 'sounds/Bach.mp3', name: 'Bach' },
-  { src: 'sounds/test.mp3', name: 'Test' },
-  { src: 'sounds/Brahms.mp3', name: 'Brahms' },
-  { src: 'sounds/Chopin.mp3', name: 'Chopin' }
+  { src: 'sounds/chill.mp3', name: 'Chill' },
+  { src: 'sounds/dnb.mp3', name: 'DnB' },
+  { src: 'sounds/hiphop.mp3', name: 'HipHop' },
+  { src: 'sounds/house.mp3', name: 'House' },
+  { src: 'sounds/reggae.mp3', name: 'Reggae' }
 ]
-// https://www.youtube.com/watch?v=0HrHuLa7y1E&t
 
 const inventoryContainer = new UIContainerStack(canvas)
 inventoryContainer.adaptWidth = true
@@ -206,7 +205,7 @@ for (let i = 0; i < songs.length; i++) {
 
 NextButton1.onClick = new OnClick(() => {
   sname.value = "close"
-  inventoryContainer.height = 480
+  inventoryContainer.height = 460
   NextButton0.visible = true
   NextButton1.visible = false
   NextButton2.visible = true
@@ -224,7 +223,7 @@ NextButton1.onClick = new OnClick(() => {
 
 NextButton2.onClick = new OnClick(() => {
   sname2.value = "Playing.."
-  sname4.value = songs[i-1].name
+  sname3.value = songs[i-1].name
   sname4.value = songs[i-2].name
   sname5.value = songs[i-3].name
   sname6.value = songs[i-4].name
