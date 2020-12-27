@@ -7,11 +7,8 @@ const imageTexture = new Texture('images/UI_Guestbook.png')
 const canvas = new UICanvas()
 
 const songs: { src: string; name: string }[] = [
-  { src: 'sounds/chill.mp3', name: 'Chill' },
-  { src: 'sounds/dnb.mp3', name: 'DnB' },
-  { src: 'sounds/hiphop.mp3', name: 'HipHop' },
-  { src: 'sounds/house.mp3', name: 'House' },
-  { src: 'sounds/reggae.mp3', name: 'Reggae' }
+  { src: 'sounds/hiphop.mp3', name: 'Hiphop' },
+  { src: 'sounds/house.mp3', name: 'House' }
 ]
 
 const inventoryContainer = new UIContainerStack(canvas)
@@ -21,10 +18,11 @@ inventoryContainer.width = 200
 inventoryContainer.height = 75
 inventoryContainer.positionY = 100
 inventoryContainer.positionX = 0
-inventoryContainer.color = Color4.White()
+inventoryContainer.color = Color4.Yellow()
 inventoryContainer.hAlign = "right"
 inventoryContainer.vAlign = "bottom"
 inventoryContainer.stackOrientation = UIStackOrientation.VERTICAL
+inventoryContainer.opacity = 0.1
 
 const NextButton0 = new UIImage(canvas, imageTexture)
 NextButton0.width = 76
@@ -70,39 +68,6 @@ NextButton3.sourceWidth = 75
 NextButton3.sourceHeight = 75
 NextButton3.visible = false
 
-const NextButton4 = new UIImage(canvas, imageTexture)
-NextButton4.width = 76
-NextButton4.height = 76
-NextButton4.hAlign = "right"
-NextButton4.vAlign = "bottom"
-NextButton4.positionY = 328
-NextButton4.positionX = 10
-NextButton4.sourceWidth = 75
-NextButton4.sourceHeight = 75
-NextButton4.visible = false
-
-const NextButton5 = new UIImage(canvas, imageTexture)
-NextButton5.width = 76
-NextButton5.height = 76
-NextButton5.hAlign = "right"
-NextButton5.vAlign = "bottom"
-NextButton5.positionY = 404
-NextButton5.positionX = 10
-NextButton5.sourceWidth = 75
-NextButton5.sourceHeight = 75
-NextButton5.visible = false
-
-const NextButton6 = new UIImage(canvas, imageTexture)
-NextButton6.width = 76
-NextButton6.height = 76
-NextButton6.hAlign = "right"
-NextButton6.vAlign = "bottom"
-NextButton6.positionY = 480
-NextButton6.positionX = 10
-NextButton6.sourceWidth = 75
-NextButton6.sourceHeight = 75
-NextButton6.visible = false
-
 const sname = new UIText(canvas)
 sname.value = "MusicBox"
 sname.width = 76
@@ -115,7 +80,7 @@ sname.fontSize = 25
 sname.color = Color4.Black()
 
 const sname2 = new UIText(canvas)
-sname2.value = "Reggae"
+sname2.value = "House"
 sname2.width = 76
 sname2.height = 76
 sname2.hAlign = "right"
@@ -127,7 +92,7 @@ sname2.color = Color4.Black()
 sname2.visible = false
 
 const sname3 = new UIText(canvas)
-sname3.value = "House"
+sname3.value = "HipHop"
 sname3.width = 76
 sname3.height = 76
 sname3.hAlign = "right"
@@ -138,41 +103,6 @@ sname3.fontSize = 25
 sname3.color = Color4.Black()
 sname3.visible = false
 
-const sname4 = new UIText(canvas)
-sname4.value = "HipHop"
-sname4.width = 76
-sname4.height = 76
-sname4.hAlign = "right"
-sname4.vAlign = "bottom"
-sname4.positionY = 338
-sname4.positionX = -120
-sname4.fontSize = 25
-sname4.color = Color4.Black()
-sname4.visible = false
-
-const sname5 = new UIText(canvas)
-sname5.value = "DnB"
-sname5.width = 76
-sname5.height = 76
-sname5.hAlign = "right"
-sname5.vAlign = "bottom"
-sname5.positionY = 414
-sname5.positionX = -120
-sname5.fontSize = 25
-sname5.color = Color4.Black()
-sname5.visible = false
-
-const sname6 = new UIText(canvas)
-sname6.value = "Chill"
-sname6.width = 76
-sname6.height = 76
-sname6.hAlign = "right"
-sname6.vAlign = "bottom"
-sname6.positionY = 490
-sname6.positionX = -120
-sname6.fontSize = 25
-sname6.color = Color4.Black()
-sname6.visible = false
 
 NextButton0.onClick = new OnClick(() => {
   sname.value = "MusicBox"
@@ -181,21 +111,12 @@ NextButton0.onClick = new OnClick(() => {
   NextButton1.visible = true
   NextButton2.visible = false
   NextButton3.visible = false
-  NextButton4.visible = false
-  NextButton5.visible = false
-  NextButton6.visible = false
   sname2.visible = false
   sname3.visible = false
-  sname4.visible = false
-  sname5.visible = false
-  sname6.visible = false
   }
 )
 
 let buttonArray = []
-
-let clickOffset = new Vector3(0, 0.5, 0.02)
-let buttonPos = new Vector3(0, 0.5, -0.04)
 
 for (let i = 0; i < songs.length; i++) {
 
@@ -205,28 +126,19 @@ for (let i = 0; i < songs.length; i++) {
 
 NextButton1.onClick = new OnClick(() => {
   sname.value = "close"
-  inventoryContainer.height = 460
+  inventoryContainer.height = 230
   NextButton0.visible = true
   NextButton1.visible = false
   NextButton2.visible = true
   NextButton3.visible = true
-  NextButton4.visible = true
-  NextButton5.visible = true
-  NextButton6.visible = true
   sname2.visible = true
   sname3.visible = true
-  sname4.visible = true
-  sname5.visible = true
-  sname6.visible = true
   }
 )
 
 NextButton2.onClick = new OnClick(() => {
   sname2.value = "Playing.."
   sname3.value = songs[i-1].name
-  sname4.value = songs[i-2].name
-  sname5.value = songs[i-3].name
-  sname6.value = songs[i-4].name
   pressButton(i)
   }
 )
@@ -234,40 +146,7 @@ NextButton2.onClick = new OnClick(() => {
 NextButton3.onClick = new OnClick(() => {
   sname2.value = songs[i].name
   sname3.value = "Playing.."
-  sname4.value = songs[i-2].name
-  sname5.value = songs[i-3].name
-  sname6.value = songs[i-4].name
   pressButton(i-1)
-  }
-)
-
-NextButton4.onClick = new OnClick(() => {
-  sname2.value = songs[i].name
-  sname3.value = songs[i-1].name
-  sname4.value = "Playing.."
-  sname5.value = songs[i-3].name
-  sname6.value = songs[i-4].name
-  pressButton(i-2)
-  }
-)
-
-NextButton5.onClick = new OnClick(() => {
-  sname2.value = songs[i].name
-  sname3.value = songs[i-1].name
-  sname4.value = songs[i-2].name
-  sname5.value = "Playing.."
-  sname6.value = songs[i-4].name
-  pressButton(i-3)
-  }
-)
-
-NextButton6.onClick = new OnClick(() => {
-  sname2.value = songs[i].name
-  sname3.value = songs[i-1].name
-  sname4.value = songs[i-2].name
-  sname5.value = songs[i-3].name
-  sname6.value = 'Playing..'
-  pressButton(i-4)
   }
 )
 
@@ -459,19 +338,26 @@ de2.addComponent(
 )
 )
 
-const de3 = new Entity()
-engine.addEntity(de3)
-de3.addComponent(new GLTFShape("models/de3.glb"))
-de3.addComponent(new Transform({ position: new Vector3(75.58, 0, 43) }));
-
-de3.addComponent(
-
-  new OnPointerDown(() => {},
-    { hoverText: "Submit your discord username",
-      distance: 33,
-     }
+let guestBook = new GuestBook(
+  {
+    position: new Vector3(75.58, 0, 43),
+  },
+  'test'
 )
-)
+engine.addEntity(guestBook)
+// const de3 = new Entity()
+// engine.addEntity(de3)
+// de3.addComponent(new GLTFShape("models/de3.glb"))
+// de3.addComponent(new Transform({ position: new Vector3(75.58, 0, 43) }));
+//
+// de3.addComponent(
+//
+//   new OnPointerDown(() => {},
+//     { hoverText: "Submit your discord username",
+//       distance: 33,
+//      }
+// )
+// )
 
 const avoc = new Entity()
 engine.addEntity(avoc)
