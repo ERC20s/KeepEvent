@@ -414,6 +414,21 @@ upstairs.addComponent(
   )
 )
 
+const dstairs = new Entity()
+
+engine.addEntity(dstairs)
+dstairs.addComponent(new GLTFShape("models/dstairs.gltf"))
+dstairs.addComponent(new Transform({ position: new Vector3(19, 38, 77) }));
+dstairs.addComponent(
+  new OnPointerDown(
+    (_e) => {
+      RestrictedActions.movePlayerTo({ x: 60, y: 5, z: 20 }, { x: 70, y: 5, z: 20 })
+    },
+    { hoverText: "Go downstairs!",
+    distance: 50,  }
+  )
+)
+
 const moon = new Entity()
 engine.addEntity(moon)
 moon.addComponent(new GLTFShape("models/moon.gltf"))
